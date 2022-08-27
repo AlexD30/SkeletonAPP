@@ -27,13 +27,23 @@ export class HomePage {
   }
 
   async presentAlert() {
-    const alert = await this.alertController.create({
-      subHeader: 'Usuario',
-      message: 'Su nombre es '+this.usuario.nombre+' '+this.usuario.apellido,
-      buttons: ['OK'],
-    });
-
-    await alert.present();
+    if(this.usuario.nombre.length<=0){
+      const alert = await this.alertController.create({
+        subHeader: 'Usuario',
+        message: 'Error campos invalidos',
+        buttons: ['OK'],
+      });
+  
+      await alert.present();
+    }else{
+      const alert = await this.alertController.create({
+        subHeader: 'Usuario',
+        message: 'Su nombre es '+this.usuario.nombre+" "+this.usuario.apellido,
+        buttons: ['OK'],
+      });
+  
+      await alert.present();
+    }
   }
   ngOnInit() {
     this.usuario.nombreUsuario=this.activatedRoute.snapshot.paramMap.get("nombreUsuario");

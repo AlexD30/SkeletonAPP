@@ -24,7 +24,6 @@ export class HomePage {
     apellido:"",
     nivelEducacion:"",
     fechaNacimiento:""
-
   }
 
   async presentAlert() {
@@ -47,7 +46,5 @@ export class HomePage {
   this.usuario.nivelEducacion=""
   this.usuario.fechaNacimiento=""
   }
-
-
 
 }
